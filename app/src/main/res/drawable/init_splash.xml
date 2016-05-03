@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" android:opacity="opaque">
+    <!-- 背景颜色设置为白色-->
+    <item android:drawable="@android:color/black" />
+    <!-- 位于屏幕中央的logo图片-->
+    <item>
+        <bitmap
+            android:gravity="center"
+            android:dither="true"
+            android:antialias="true"
+            android:filter="true"
+            android:src="@mipmap/ic_launcher" />
+    </item>
+</layer-list>
