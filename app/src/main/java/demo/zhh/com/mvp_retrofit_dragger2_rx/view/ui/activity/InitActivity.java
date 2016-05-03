@@ -32,7 +32,7 @@ public class InitActivity extends BaseActivity {
                 startService(intentService);
                 Jump.forward(InitActivity.this, MainActivity.class, true);
             }
-        }, 200);
+        }, 250);
     }
 
     @Override
