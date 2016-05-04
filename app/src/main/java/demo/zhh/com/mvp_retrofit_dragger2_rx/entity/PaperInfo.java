@@ -3,6 +3,9 @@ package demo.zhh.com.mvp_retrofit_dragger2_rx.entity;
 
 import java.util.List;
 
+/**
+ * 壁纸实体
+ */
 public class PaperInfo extends BaseData {
 
 	private Link link;
