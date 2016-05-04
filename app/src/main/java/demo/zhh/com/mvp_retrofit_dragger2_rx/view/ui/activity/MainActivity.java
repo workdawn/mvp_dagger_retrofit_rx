@@ -1,10 +1,8 @@
 package demo.zhh.com.mvp_retrofit_dragger2_rx.view.ui.activity;
 
 import android.content.Intent;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
-import butterknife.Bind;
 import demo.zhh.com.mvp_retrofit_dragger2_rx.R;
 import demo.zhh.com.mvp_retrofit_dragger2_rx.biz.AppComponent;
 import demo.zhh.com.mvp_retrofit_dragger2_rx.commons.App;
@@ -22,8 +20,8 @@ public class MainActivity extends DoMoreBaseActivity implements IMainView{
     /**退出时间*/
     private long time = 0;
 
-    @Bind(R.id.main_data)
-    RecyclerView data;
+    /*@Bind(R.id.main_data)
+    RecyclerView data;*/
 
     @Override
     public int setLayoutID() {
