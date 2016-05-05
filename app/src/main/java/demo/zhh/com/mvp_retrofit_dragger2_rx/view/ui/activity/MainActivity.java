@@ -35,11 +35,18 @@ public class MainActivity extends DoMoreBaseActivity implements IMainView{
 
     @Override
     public void initViews() {
+        initRecyclerView();
+        loadData();
+    }
+
+    /**
+     * 初始化recyclerView
+     */
+    private void initRecyclerView(){
         data.setLayoutManager(new GridLayoutManager(this, 2));
         data.setHasFixedSize(true);
         adapter = new MainDataAdapter(this);
         data.setAdapter(adapter);
-        loadData();
     }
 
     @Override
