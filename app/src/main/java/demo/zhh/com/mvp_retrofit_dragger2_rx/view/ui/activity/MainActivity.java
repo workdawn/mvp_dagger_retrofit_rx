@@ -36,9 +36,10 @@ public class MainActivity extends DoMoreBaseActivity implements IMainView{
     @Override
     public void initViews() {
         data.setLayoutManager(new GridLayoutManager(this, 2));
+        data.setHasFixedSize(true);
         adapter = new MainDataAdapter(this);
         data.setAdapter(adapter);
-        addSubscription(presenter.loadDataFromService(this));
+        loadData();
     }
 
     @Override
@@ -63,6 +64,13 @@ public class MainActivity extends DoMoreBaseActivity implements IMainView{
     @Override
     public void showData(PaperInfo info) {
         adapter.setData(info.getData());
+    }
+
+    /**
+     * 加载数据
+     */
+    private void loadData(){
+        addSubscription(presenter.loadDataFromService(this));
     }
 
     @Override

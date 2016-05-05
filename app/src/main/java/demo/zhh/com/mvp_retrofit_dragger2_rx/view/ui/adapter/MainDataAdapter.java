@@ -34,8 +34,9 @@ public class MainDataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
      * @param data 数据集合
      */
     public void setData(ArrayList<PaperInfo.Data> data){
+        int index = this.data.size();
         this.data.addAll(data);
-        notifyDataSetChanged();
+        notifyItemRangeInserted(index, this.data.size());
     }
 
     @Override
@@ -45,7 +46,10 @@ public class MainDataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        DisplayImage.display(((MainDataHolder) holder).imageView, data.get(position).getImage().getSmall(), App.options);
+        PaperInfo.Data dataImage = data.get(position);
+        if(dataImage != null && dataImage.getImage() != null){
+            DisplayImage.display(((MainDataHolder) holder).imageView, dataImage.getImage().getSmall(), App.options);
+        }
     }
 
     @Override
