@@ -1,6 +1,7 @@
 package demo.zhh.com.mvp_retrofit_dragger2_rx.entity;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,7 +12,7 @@ public class PaperInfo extends BaseData {
 	private Link link;
 	//private List<Time> useTime;
 	private List<Slider> slider;
-	private List<Data> data;
+	private ArrayList<Data> data;
 
 	public Link getLink() {
 		return link;
@@ -37,11 +38,11 @@ public class PaperInfo extends BaseData {
 		this.slider = slider;
 	}
 
-	public List<Data> getData() {
+	public ArrayList<Data> getData() {
 		return data;
 	}
 
-	public void setData(List<Data> data) {
+	public void setData(ArrayList<Data> data) {
 		this.data = data;
 	}
 

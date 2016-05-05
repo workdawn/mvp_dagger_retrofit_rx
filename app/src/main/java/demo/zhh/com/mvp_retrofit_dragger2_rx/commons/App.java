@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.view.ViewGroup;
 
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
@@ -22,6 +23,7 @@ import java.util.HashSet;
 import demo.zhh.com.mvp_retrofit_dragger2_rx.R;
 import demo.zhh.com.mvp_retrofit_dragger2_rx.biz.AppComponent;
 import demo.zhh.com.mvp_retrofit_dragger2_rx.biz.DaggerAppComponent;
+import demo.zhh.com.mvp_retrofit_dragger2_rx.utils.Cookie;
 import demo.zhh.com.mvp_retrofit_dragger2_rx.utils.CrashHandler;
 import demo.zhh.com.mvp_retrofit_dragger2_rx.utils.dagger.AppModule;
 import demo.zhh.com.mvp_retrofit_dragger2_rx.utils.dagger.BaseModelModule;
@@ -111,6 +113,33 @@ public class App extends Application{
             mainActivity.finish();
         }
         System.exit(0);
+    }
+
+    public static void setWidth(Activity activity, int width) {
+        new Cookie(activity, Cookie.USER_DATA).putVal("width", width);
+    }
+
+    public static int getWidth(Activity activity) {
+        int width = new Cookie(activity, Cookie.USER_DATA).getInt("width");
+        return width == 0 ? ViewGroup.LayoutParams.WRAP_CONTENT : width;
+    }
+
+    public static int getWidth(Context context){
+        int width = new Cookie(context, Cookie.USER_DATA).getInt("width");
+        return width == 0 ? ViewGroup.LayoutParams.WRAP_CONTENT : width;
+    }
+
+    public static int getHeight(Context context) {
+        int height = new Cookie(context, Cookie.USER_DATA).getInt("height");
+        return height == 0 ? ViewGroup.LayoutParams.WRAP_CONTENT : height;
+    }
+
+    public static void setHeight(Activity activity, int height) {
+        new Cookie(activity, Cookie.USER_DATA).putVal("height", height);
+    }
+
+    public static int getHeight(Activity activity) {
+        return (new Cookie(activity, Cookie.USER_DATA).getInt("height"));
     }
 
     /**

@@ -1,12 +1,14 @@
 package demo.zhh.com.mvp_retrofit_dragger2_rx.view.ui.activity;
 
 import android.content.Intent;
+import android.view.Display;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 import demo.zhh.com.mvp_retrofit_dragger2_rx.R;
 import demo.zhh.com.mvp_retrofit_dragger2_rx.biz.AppComponent;
+import demo.zhh.com.mvp_retrofit_dragger2_rx.commons.App;
 import demo.zhh.com.mvp_retrofit_dragger2_rx.model.service.CheckService;
 import demo.zhh.com.mvp_retrofit_dragger2_rx.utils.Jump;
 import demo.zhh.com.mvp_retrofit_dragger2_rx.view.ui.base.BaseActivity;
@@ -23,6 +25,9 @@ public class InitActivity extends BaseActivity {
 
     @Override
     public void initViews() {
+        Display display = getWindowManager().getDefaultDisplay();
+        App.setWidth(this, (int) (display.getWidth()));
+        App.setHeight(this, (int) (display.getHeight()));
         Timer timer=new Timer();
         timer.schedule(new TimerTask() {
 

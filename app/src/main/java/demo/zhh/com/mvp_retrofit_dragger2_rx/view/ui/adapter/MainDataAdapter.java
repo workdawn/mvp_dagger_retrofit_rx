@@ -1,20 +1,20 @@
 package demo.zhh.com.mvp_retrofit_dragger2_rx.view.ui.adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.nostra13.universalimageloader.core.ImageLoader;
-
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import demo.zhh.com.mvp_retrofit_dragger2_rx.R;
 import demo.zhh.com.mvp_retrofit_dragger2_rx.commons.App;
 import demo.zhh.com.mvp_retrofit_dragger2_rx.entity.PaperInfo;
+import demo.zhh.com.mvp_retrofit_dragger2_rx.utils.DisplayImage;
+import demo.zhh.com.mvp_retrofit_dragger2_rx.utils.LayoutParamsUtils;
 
 /**
  * 首页数据适配器
@@ -22,19 +22,19 @@ import demo.zhh.com.mvp_retrofit_dragger2_rx.entity.PaperInfo;
  */
 public class MainDataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
-    private ImageLoader imageLoader;
-    private ArrayList<PaperInfo.Data> datas;
-    public MainDataAdapter(){
-        imageLoader = ImageLoader.getInstance();
-        datas = new ArrayList<>();
+    private ArrayList<PaperInfo.Data> data;
+    private Context mContext;
+    public MainDataAdapter(Context context){
+        mContext = context;
+        data = new ArrayList<>();
     }
 
     /**
      * 设置数据
      * @param data 数据集合
      */
-    public void setDatas(List<PaperInfo.Data> data){
-        datas.addAll(data);
+    public void setData(ArrayList<PaperInfo.Data> data){
+        this.data.addAll(data);
         notifyDataSetChanged();
     }
 
@@ -45,12 +45,12 @@ public class MainDataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        imageLoader.displayImage(datas.get(position).getImage().getSmall(), ((MainDataHolder) holder).imageView, App.options);
+        DisplayImage.display(((MainDataHolder) holder).imageView, data.get(position).getImage().getSmall(), App.options);
     }
 
     @Override
     public int getItemCount() {
-        return datas.size();
+        return data.size();
     }
 
     public final class MainDataHolder extends RecyclerView.ViewHolder{
@@ -60,6 +60,8 @@ public class MainDataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         public MainDataHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+
+            LayoutParamsUtils.layout(imageView, 380, 0 , mContext, null);
 
         }
     }
