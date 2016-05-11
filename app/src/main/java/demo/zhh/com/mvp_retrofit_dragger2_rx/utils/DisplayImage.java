@@ -11,12 +11,16 @@ import com.nostra13.universalimageloader.core.ImageLoader;
  */
 public class DisplayImage {
 
+    private static ImageLoader mImageLoader;
     /**
      * 获取imageloader实例
      * @return imageloader实例
      */
     private static ImageLoader getImageLoader() {
-        return ImageLoader.getInstance();
+        if(mImageLoader == null){
+            mImageLoader = ImageLoader.getInstance();
+        }
+        return mImageLoader;
     }
 
     /**
