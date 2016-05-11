@@ -4,7 +4,6 @@ import android.widget.ImageView;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 /**
  * 显示图片
@@ -53,9 +52,9 @@ public class DisplayImage {
      * @param v 控件
      * @param url 图片地址
      * @param options 参数
-     * @param listener 监听器 用自己的DisplayImageListenerAdapter适配器
+     * @param listener 监听器DisplayImageListenerAdapter
      */
-    public static void display(ImageView v, String url, DisplayImageOptions options, ImageLoadingListener listener){
+    public static void display(ImageView v, String url, DisplayImageOptions options, DisplayImageListenerAdapter listener){
         getImageLoader().displayImage(url, v, options, listener);
     }
 }
